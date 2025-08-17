@@ -2,15 +2,9 @@
 import { useAppDispatch, useAppSelector } from "@/lib/hook";
 import { DirectionRightIcon } from "../icons/DirectionIcon";
 import { ItemOptionMenu } from "./ItemOptionMenu/ItemOptionMenu";
-import {
-  exitMenu,
-  resetMenu,
-  showMenu,
-  showReportMenu,
-  showThemeMenu,
-} from "@/store/features/menu/MenuSlice";
-import { RefObject, useRef } from "react";
-import { useOnClickOutside } from "usehooks-ts";
+import { exitMenu, showThemeMenu } from "@/store/features/menu/MenuSlice";
+import { RefObject } from "react";
+import { showReport } from "@/store/features/reportProblem/ReportProblemSlice";
 
 export const OptionMenu = ({ ref }: { ref: RefObject<HTMLDivElement> }) => {
   const dispatch = useAppDispatch();
@@ -39,7 +33,7 @@ export const OptionMenu = ({ ref }: { ref: RefObject<HTMLDivElement> }) => {
               text="Report a problem"
               onClick={() => {
                 dispatch(exitMenu());
-                dispatch(showReportMenu());
+                dispatch(showReport());
               }}
             />
           </div>

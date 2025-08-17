@@ -1,0 +1,30 @@
+"use client";
+import { ThreadsIcon } from "../icons/ThreadsIcon";
+import { Button } from "../common/Button/Button";
+import { Footer } from "../common/Footer";
+
+export const SearchBox = () => {
+  return (
+    <div className="flex flex-col justify-start items-center gap-2 lg:p-4 lg:w-3xl w-screen">
+      <p className="text-base font-medium text-black dark:text-white m-2 hidden lg:block ">
+        search
+      </p>
+      <div className="lg:rounded-t-2xl bg-white dark:bg-gray-900 border-[1px] border-gray-200 dark:border-gray-800 w-full h-fit py-4 lg:py-10 px-8">
+        <div className="relative lg:hidden flex justify-center items-center">
+          <div className="size-8">
+            <ThreadsIcon />
+          </div>
+          <Button className="absolute right-0 mr-0.5" href="/login">
+            Login
+          </Button>
+        </div>
+        <input
+          className="w-full border rounded-xl my-10 lg:m-0 border-gray-200 bg-gray-100 px-4 py-2 dark:border-gray-800 dark:bg-black text-base font-medium text-gray-800 outline-none placeholder:text-gray-300 dark:text-gray-200 dark:placeholder:text-gray-700"
+          type="text"
+          placeholder="search..."
+        />
+      </div>
+      <Footer />
+    </div>
+  );
+};

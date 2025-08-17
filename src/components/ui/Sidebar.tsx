@@ -5,14 +5,16 @@ import { ThreadsIcon } from "../icons/ThreadsIcon";
 
 export const Sidebar = () => {
   return (
-    <div className="fixed top-0 left-0 h-full flex flex-col justify-between items-center w-20 p-1">
-      <div className="p-4  hover:scale-[1.08] transition-all">
+    <div className=" backdrop-blur-sm lg:backdrop-blur-none fixed bottom-0 lg:top-0 lg:left-0 h-16 lg:h-full flex flex-col justify-center lg:justify-between items-center w-full lg:w-20 pb-2 lg:pb-0 p-1">
+      <div className="p-4 hover:scale-[1.08] transition-all hidden lg:block">
         <Link href={"/"} className="w-full">
           <ThreadsIcon />
         </Link>
       </div>
       <SidebarMenu />
-      <OptionMenuBtn />
+      <div className="hidden lg:block">
+        <OptionMenuBtn />
+      </div>
     </div>
   );
 };
