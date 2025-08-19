@@ -5,10 +5,12 @@ import { togglePostMenu } from "@/store/features/menu/MenuSlice";
 import { ItemOptionMenu } from "../ItemOptionMenu";
 import { LinkIcon } from "@/components/icons/LinkIcon";
 import { RefObject, useRef } from "react";
-import { useOnClickOutside } from "usehooks-ts";
+import { useCopyToClipboard, useOnClickOutside } from "usehooks-ts";
 import { MoreIcon } from "@/components/icons/MoreIcon";
+import toast from "react-hot-toast";
 
 export const CopyLinkBtn = ({ PostID }: CopyLinkBtnType) => {
+  const [copiedText, copy] = useCopyToClipboard();
   const refSvg = useRef<SVGSVGElement>(null);
   const refMenu = useRef<HTMLButtonElement>(null);
 
@@ -19,6 +21,24 @@ export const CopyLinkBtn = ({ PostID }: CopyLinkBtnType) => {
   const isPostActive: boolean = activePost === PostID;
   const toggleMenu = () => {
     dispatch(togglePostMenu(PostID));
+  };
+  const handleCopy = async () => {
+    const theme = localStorage.getItem("theme");
+    await copy(`${window.location.origin.toString()}/post/${PostID}`);
+    dispatch(togglePostMenu(null));
+    if (theme === "dark") {
+      toast.success("copied", {
+        position: "bottom-center",
+      });
+    } else {
+      toast.success("copied", {
+        position: "bottom-center",
+        style: {
+          background: "#171717",
+          color: "#fff",
+        },
+      });
+    }
   };
   useOnClickOutside(refMenu as RefObject<HTMLElement>, (e) => {
     dispatch(togglePostMenu(null));
@@ -38,10 +58,7 @@ export const CopyLinkBtn = ({ PostID }: CopyLinkBtnType) => {
             className="border py-1 px-2 border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 rounded-2xl"
             text="Copy link"
             icon={<LinkIcon />}
-            onClick={() => {
-              dispatch(togglePostMenu(null));
-              console.log("object");
-            }}
+            onClick={handleCopy}
           />
         </button>
       )}

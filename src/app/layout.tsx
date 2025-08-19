@@ -1,6 +1,7 @@
 import Provider from "@/lib/ThemeProvider";
 import "@/styles/globals.css";
 import { ReduxProvider } from "@/lib/ReduxProvider";
+import { Toaster } from "react-hot-toast";
 
 export default function RootLayout({
   children,
@@ -11,7 +12,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className="font-poppins bg-[#f5f5f5] dark:bg-black font-normal">
         <Provider>
-          <ReduxProvider>{children}</ReduxProvider>
+          <ReduxProvider>
+            <Toaster position="top-center" />
+            {children}
+          </ReduxProvider>
         </Provider>
       </body>
     </html>
