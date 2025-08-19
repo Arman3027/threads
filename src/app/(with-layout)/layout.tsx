@@ -1,6 +1,6 @@
 import { Button } from "@/components/common/Button";
-import { ReportProblem } from "@/components/ui/ReportProblem";
-import { Sidebar } from "@/components/ui/Sidebar";
+import { ReportProblem } from "@/components/ui";
+import { Sidebar } from "@/components/ui";
 
 export default function WithLayout({
   children,

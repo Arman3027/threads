@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export const Post = ({ Post }: PostProps) => {
   return (
-    <div className="w-full h-24 py-4 px-8 flex gap-2  first:border-0 border-t border-gray-200 dark:border-gray-800">
+    <div className="w-full min-h-24 py-4 px-8 flex gap-2  first:border-0 border-t border-gray-200 dark:border-gray-800">
       <div>
         <Image
           src="/Image/unknownPerson.jpg"

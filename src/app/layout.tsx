@@ -8,7 +8,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning={true}>
+    <html lang="en" suppressHydrationWarning>
       <body className="font-poppins bg-[#f5f5f5] dark:bg-black font-normal">
         <Provider>
           <ReduxProvider>{children}</ReduxProvider>

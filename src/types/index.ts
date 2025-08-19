@@ -1,3 +1,13 @@
-export type { PostsType } from "./types";
-export type { GetPostsApiQueryArgType } from "./types";
-export type { ChildrenProps } from "./types";
+export type {
+  PostsType,
+  GetPostsApiQueryArgProps,
+  ChildrenProps,
+} from "./types";
+export type {
+  CustomResponseOptionsType,
+  CustomResponseType,
+  DataPaginationType,
+  PaginationOptionsType,
+  PaginationType,
+  ResponseBodyType,
+} from "./responseTypes";

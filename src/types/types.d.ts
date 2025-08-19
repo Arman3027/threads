@@ -12,7 +12,7 @@ export interface PostsType {
   created_at: string;
 }
 
-export interface GetPostsApiQueryArgType {
+export interface GetPostsApiQueryArgProps {
   search?: string;
   page?: number;
   limit?: number;
