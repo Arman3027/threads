@@ -1,24 +1,34 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { PostsApiType } from "./type";
+import { GetPostsApiQueryArgType, PostsType } from "@/types";
+import api from "../api";
 
-export const apiSlice = createApi({
-  reducerPath: "api", // Unique name for the reducer
-  baseQuery: fetchBaseQuery({
-    baseUrl: "https://jsonplaceholder.typicode.com/",
-  }),
+const postApi = api.injectEndpoints({
   endpoints: (builder) => ({
-    getPosts: builder.query<PostsApiType[], void>({
-      query: () => "posts",
-    }),
-    getPostById: builder.query<PostsApiType, number>({
-      query: (id) => `posts/${id}`,
-    }),
-    createPost: builder.mutation<PostsApiType, Partial<PostsApiType>>({
+    addPost: builder.mutation<PostsType[], PostsType>({
       query: (newPost) => ({
-        url: "posts",
-        method: "POST",
+        url: "/posts",
+        method: "post",
         body: newPost,
       }),
+      invalidatesTags: ["Post"],
+    }),
+    getPosts: builder.query<PostsType[], GetPostsApiQueryArgType>({
+      query: ({ page, search, limit }) => ({
+        url: "/posts",
+        method: "get",
+        params: {
+          search,
+          page,
+          limit,
+        },
+      }),
+      providesTags: ["Post"],
+    }),
+    getPost: builder.query<PostsType, string>({
+      query: (postId: string) => `/posts/${postId}`,
+      providesTags: ["Post"],
     }),
   }),
 });
+
+export default postApi;
+export const { useGetPostsQuery } = postApi;

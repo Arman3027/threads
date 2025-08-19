@@ -1,34 +1,41 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import type { MenuStateType } from "./type";
 
 const initialState: MenuStateType = {
   isThemeSelectorActive: false,
   isOptionMenuActive: false,
+  activePost: null,
 };
 
 const menuSlice = createSlice({
   name: "menu",
   initialState,
   reducers: {
-    showMenu: () => ({ ...initialState, isOptionMenuActive: true }),
-    exitMenu: () => ({ ...initialState, isOptionMenuActive: false }),
-    showThemeMenu: () => ({
-      ...initialState,
-      isThemeSelectorActive: true,
-    }),
-    exitThemeMenu: () => ({
-      ...initialState,
-      isThemeSelectorActive: false,
-    }),
-    resetMenu: () => ({
-      ...initialState,
-      isOptionMenuActive: false,
-      isThemeSelectorActive: false,
-    }),
+    showMenu: (state) => {
+      state.isOptionMenuActive = true;
+    },
+    exitMenu: (state) => {
+      state.isOptionMenuActive = false;
+    },
+    showThemeMenu: (state) => {
+      state.isThemeSelectorActive = true;
+    },
+    exitThemeMenu: (state) => {
+      state.isThemeSelectorActive = false;
+    },
+    togglePostMenu: (state, action: PayloadAction<string | null>) => {
+      state.activePost =
+        action.payload === state.activePost ? null : action.payload;
+    },
   },
 });
 
-export default menuSlice;
-export const { showMenu, exitMenu, showThemeMenu, exitThemeMenu, resetMenu } =
-  menuSlice.actions;
+export default menuSlice.reducer;
+export const {
+  showMenu,
+  exitMenu,
+  showThemeMenu,
+  exitThemeMenu,
+  togglePostMenu,
+} = menuSlice.actions;

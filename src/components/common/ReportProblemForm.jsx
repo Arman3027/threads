@@ -1,6 +1,6 @@
 export const ReportProblemForm = () => {
   return (
-    <form className="h-full w-full">
+    <form className="h-full w-full z-50">
       <div className="h-full rounded-2xl border border-gray-200 bg-white p-6 shadow-lg dark:border-gray-800 dark:bg-gray-900">
         <div className="flex flex-col">
           <textarea

@@ -1,7 +1,11 @@
 "use client";
 import { useAppDispatch, useAppSelector } from "@/lib/hook";
 import { OptionMenuIcon } from "../icons/OptionMenuIcon";
-import { resetMenu, showMenu } from "@/store/features/menu/MenuSlice";
+import {
+  exitMenu,
+  exitThemeMenu,
+  showMenu,
+} from "@/store/features/menu/MenuSlice";
 import { cn } from "@/lib/utils/cn";
 import { ThemeSelector } from "./ThemeSelector/ThemeSelector";
 import { OptionMenu } from "./OptionMenu";
@@ -20,7 +24,8 @@ export const OptionMenuBtn = () => {
   useOnClickOutside(
     [refOpionMenu, refThemeSelector] as RefObject<HTMLDivElement>[],
     () => {
-      dispatch(resetMenu());
+      dispatch(exitThemeMenu());
+      dispatch(exitMenu());
     }
   );
   return (

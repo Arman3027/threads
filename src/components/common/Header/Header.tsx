@@ -18,7 +18,7 @@ export const Header = ({ title }: HeaderType) => {
           Login
         </Button>
       </div>
-      <div className="hidden items-center lg:flex">
+      <div className="hidden items-center lg:flex z-40">
         <div className="absolute bottom-0 h-0 w-full px-8">
           <div className="border-t border-gray-200 dark:border-gray-800"></div>
         </div>

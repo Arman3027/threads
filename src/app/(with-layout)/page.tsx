@@ -1,27 +1,167 @@
 "use client";
 
-import { Header } from "@/components/common/Header/Header";
 import { MainLayout } from "@/components/common/MainLayout/MainLayout";
+import { Post } from "@/components/ui/Post";
 
 export default function Home() {
   return (
     <MainLayout title="Home">
-      <div>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima
-        necessitatibus quis qui aliquid commodi dolor perspiciatis harum
-        corporis sed officia?Lorem ipsum dolor sit amet consectetur, adipisicing
-        elit. Sit eius dignissimos earum autem rem enim cupiditate distinctio.
-        Exercitationem tempore esse, dignissimos perspiciatis, vel quo eveniet
-        inventore corrupti obcaecati asperiores quia hic placeat? Obcaecati,
-        corporis laudantium. Blanditiis voluptatibus doloribus sapiente vitae,
-        amet nemo animi architecto et inventore veritatis unde, molestias culpa
-        consectetur sit exercitationem dolorum ullam cumque harum repellendus
-        obcaecati saepe modi fugit hic! Tenetur, repellat voluptas doloribus
-        molestiae ut saepe reiciendis id harum voluptatibus odit dolore corrupti
-        totam vitae quidem ratione beatae mollitia perspiciatis eligendi
-        voluptate? Natus incidunt mollitia ad dignissimos, consequuntur delectus
-        neque, minima, nihil ullam quis facere soluta!
-      </div>
+      <Post
+        Post={{
+          id: "1",
+          content: "test",
+          author: {
+            id: "string",
+            email: "string",
+            full_name: "Arman solaymani",
+            joined_at: "2024-08-11T05:42:22.059615",
+          },
+          created_at: "2025-08-18T03:42:22.059615",
+        }}
+      />
+      <Post
+        Post={{
+          id: "12",
+          content: "test",
+          author: {
+            id: "string",
+            email: "string",
+            full_name: "Arman solaymani",
+            joined_at: "2024-08-11T05:42:22.059615",
+          },
+          created_at: "2025-08-18T03:42:22.059615",
+        }}
+      />
+      <Post
+        Post={{
+          id: "23",
+          content: "test",
+          author: {
+            id: "string",
+            email: "string",
+            full_name: "Arman solaymani",
+            joined_at: "2024-08-11T05:42:22.059615",
+          },
+          created_at: "2025-08-18T03:42:22.059615",
+        }}
+      />
+      <Post
+        Post={{
+          id: "3",
+          content: "test",
+          author: {
+            id: "string",
+            email: "string",
+            full_name: "Arman solaymani",
+            joined_at: "2024-08-11T05:42:22.059615",
+          },
+          created_at: "2025-08-18T03:42:22.059615",
+        }}
+      />
+      <Post
+        Post={{
+          id: "2",
+          content: "test",
+          author: {
+            id: "string",
+            email: "string",
+            full_name: "Arman solaymani",
+            joined_at: "2024-08-11T05:42:22.059615",
+          },
+          created_at: "2025-08-18T03:42:22.059615",
+        }}
+      />
+      <Post
+        Post={{
+          id: "12d3",
+          content: "test",
+          author: {
+            id: "string",
+            email: "string",
+            full_name: "Arman solaymani",
+            joined_at: "2024-08-11T05:42:22.059615",
+          },
+          created_at: "2025-08-18T03:42:22.059615",
+        }}
+      />
+      <Post
+        Post={{
+          id: "231",
+          content: "test",
+          author: {
+            id: "string",
+            email: "string",
+            full_name: "Arman solaymani",
+            joined_at: "2024-08-11T05:42:22.059615",
+          },
+          created_at: "2025-08-18T03:42:22.059615",
+        }}
+      />
+      <Post
+        Post={{
+          id: "4",
+          content: "test",
+          author: {
+            id: "string",
+            email: "string",
+            full_name: "Arman solaymani",
+            joined_at: "2024-08-11T05:42:22.059615",
+          },
+          created_at: "2025-08-18T03:42:22.059615",
+        }}
+      />
+      <Post
+        Post={{
+          id: "45",
+          content: "test",
+          author: {
+            id: "string",
+            email: "string",
+            full_name: "Arman solaymani",
+            joined_at: "2024-08-11T05:42:22.059615",
+          },
+          created_at: "2025-08-18T03:42:22.059615",
+        }}
+      />
+      <Post
+        Post={{
+          id: "5",
+          content: "test",
+          author: {
+            id: "string",
+            email: "string",
+            full_name: "Arman solaymani",
+            joined_at: "2024-08-11T05:42:22.059615",
+          },
+          created_at: "2025-08-18T03:42:22.059615",
+        }}
+      />
+      <Post
+        Post={{
+          id: "6",
+          content: "test",
+          author: {
+            id: "string",
+            email: "string",
+            full_name: "Arman solaymani",
+            joined_at: "2024-08-11T05:42:22.059615",
+          },
+          created_at: "2025-08-18T03:42:22.059615",
+        }}
+      />
+      <Post
+        Post={{
+          id: "8",
+          content: "test",
+          author: {
+            id: "string",
+            email: "string",
+            full_name: "Arman solaymani",
+            joined_at: "2024-08-11T05:42:22.059615",
+          },
+          created_at: "2025-08-18T03:42:22.059615",
+        }}
+      />
     </MainLayout>
   );
 }
