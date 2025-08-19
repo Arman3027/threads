@@ -1,4 +1,4 @@
-import { MoreIconProps } from "./type";
+import type { MoreIconProps } from "./type";
 
 export const MoreIcon = ({ ref }: MoreIconProps) => {
   return (

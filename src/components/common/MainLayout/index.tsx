@@ -1,8 +1,8 @@
-import { Footer } from "../Footer";
-import { Header } from "../Header/Header";
-import type { MainLayoutType } from "./type";
+import { Footer } from "../";
+import { Header } from "../Header";
+import type { MainLayoutProps } from "./type";
 
-export const MainLayout = ({ title, children }: MainLayoutType) => {
+export const MainLayout = ({ title, children }: MainLayoutProps) => {
   return (
     <>
       <Header title={title} />

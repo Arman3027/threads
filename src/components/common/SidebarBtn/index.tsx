@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils/cn";
-import { SidebarBtnType } from "./type";
+import type { SidebarBtnProps } from "./type";
 import Link from "next/link";
 
 export const SidebarBtn = ({
@@ -9,7 +9,7 @@ export const SidebarBtn = ({
   icon,
   href,
   onClick,
-}: SidebarBtnType) => {
+}: SidebarBtnProps) => {
   return (
     <Link className=" w-full" href={href} onClick={onClick}>
       <div className="cursor-pointer rounded-xl duration-200 hover:bg-gray-200/60 dark:hover:bg-gray-800/60 p-2">

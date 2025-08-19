@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import { SidebarBtn } from "../SidebarBtn/SidebarBtn";
-import { SidebarMenuType } from "./type";
+import { SidebarBtn } from "../SidebarBtn";
+import type { SidebarMenuType } from "./type";
 import { HomeIcon } from "@/components/icons/HomeIcon";
 import { SearchIcon } from "@/components/icons/SearchIcon";
 import { usePathname } from "next/navigation";

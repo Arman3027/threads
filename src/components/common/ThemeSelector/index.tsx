@@ -5,12 +5,12 @@ import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils/cn";
 import { SunIcon } from "@/components/icons/SunIcon";
 import { MoonIcon } from "@/components/icons/MoonIcon";
-import { RefObject, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/lib/hook";
 import { exitThemeMenu, showMenu } from "@/store/features/menu/MenuSlice";
-import { SavedThemeType } from "./type";
+import type { SavedThemeType, ThemeSelectorProps } from "./type";
 
-export const ThemeSelector = ({ ref }: { ref: RefObject<HTMLDivElement> }) => {
+export const ThemeSelector = ({ ref }: ThemeSelectorProps) => {
   const { theme, setTheme } = useTheme();
   const [savedTheme, setSavedTheme] = useState<SavedThemeType>();
 

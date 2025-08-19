@@ -1,6 +1,6 @@
 import React from "react";
 
-export interface MainLayoutType {
+export interface MainLayoutProps {
   title: string;
   children: React.ReactNode;
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { MainLayout } from "@/components/common/MainLayout/MainLayout";
+import { MainLayout } from "@/components/common/MainLayout";
 import { Post } from "@/components/ui/Post";
 
 export default function Home() {

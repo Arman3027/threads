@@ -1,8 +1,8 @@
 "use client";
-import { CopyLinkBtnType } from "./type";
+import type { CopyLinkBtnType } from "./type";
 import { useAppDispatch, useAppSelector } from "@/lib/hook";
 import { togglePostMenu } from "@/store/features/menu/MenuSlice";
-import { ItemOptionMenu } from "../ItemOptionMenu/ItemOptionMenu";
+import { ItemOptionMenu } from "../ItemOptionMenu";
 import { LinkIcon } from "@/components/icons/LinkIcon";
 import { RefObject, useRef } from "react";
 import { useOnClickOutside } from "usehooks-ts";

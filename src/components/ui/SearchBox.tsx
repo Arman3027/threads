@@ -1,7 +1,7 @@
 "use client";
 import { ThreadsIcon } from "../icons/ThreadsIcon";
-import { Button } from "../common/Button/Button";
-import { Footer } from "../common/Footer";
+import { Button } from "../common/Button";
+import { Footer } from "../common";
 
 export const SearchBox = () => {
   return (

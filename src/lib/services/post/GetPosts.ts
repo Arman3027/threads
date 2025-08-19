@@ -1,6 +1,6 @@
 "use client";
 import { useGetPostsQuery } from "@/store/services/posts/postsApi";
-import { GetPostsApiQueryArgType } from "@/types";
+import type { GetPostsApiQueryArgType } from "@/types";
 
 export const GetPosts = ({
   search,

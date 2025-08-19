@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface PostsType {
   id: string;
   content: string;
@@ -14,4 +16,8 @@ export interface GetPostsApiQueryArgType {
   search?: string;
   page?: number;
   limit?: number;
+}
+
+export interface ChildrenProps {
+  children: React.ReactNode;
 }

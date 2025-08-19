@@ -1,4 +1,4 @@
-import { GetPostsApiQueryArgType, PostsType } from "@/types";
+import type { GetPostsApiQueryArgType, PostsType } from "@/types";
 import api from "../api";
 
 const postApi = api.injectEndpoints({

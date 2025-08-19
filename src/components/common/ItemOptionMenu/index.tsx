@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils/cn";
-import { ItemOptionType } from "./type";
+import type { ItemOptionMenuProps } from "./type";
 
 export const ItemOptionMenu = ({
   text,
@@ -9,7 +9,7 @@ export const ItemOptionMenu = ({
   onClick,
   className,
   ref,
-}: ItemOptionType) => {
+}: ItemOptionMenuProps) => {
   return (
     <button
       ref={ref}

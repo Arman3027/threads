@@ -1,6 +1,6 @@
 import React, { RefObject } from "react";
 
-export interface ItemOptionType {
+export interface ItemOptionMenuProps {
   text: string;
   icon?: React.ReactHTMLElement;
   onClick: React.MouseEventHandler;

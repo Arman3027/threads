@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { reportProblemStateType } from "./type";
+import type { reportProblemStateType } from "./type";
 
 const initialState: reportProblemStateType = {
   isReportProblemActive: false,

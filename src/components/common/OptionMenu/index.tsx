@@ -1,12 +1,12 @@
 "use client";
 import { useAppDispatch, useAppSelector } from "@/lib/hook";
-import { DirectionRightIcon } from "../icons/DirectionIcon";
-import { ItemOptionMenu } from "./ItemOptionMenu/ItemOptionMenu";
+import { DirectionRightIcon } from "../../icons/DirectionIcon";
+import { ItemOptionMenu } from "../ItemOptionMenu";
 import { exitMenu, showThemeMenu } from "@/store/features/menu/MenuSlice";
-import { RefObject } from "react";
+import type { OptionMenuProps } from "./type";
 import { showReport } from "@/store/features/reportProblem/ReportProblemSlice";
 
-export const OptionMenu = ({ ref }: { ref: RefObject<HTMLDivElement> }) => {
+export const OptionMenu = ({ ref }: OptionMenuProps) => {
   const dispatch = useAppDispatch();
   const { isOptionMenuActive } = useAppSelector((state) => {
     return state.menu;

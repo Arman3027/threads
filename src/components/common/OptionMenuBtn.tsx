@@ -7,7 +7,7 @@ import {
   showMenu,
 } from "@/store/features/menu/MenuSlice";
 import { cn } from "@/lib/utils/cn";
-import { ThemeSelector } from "./ThemeSelector/ThemeSelector";
+import { ThemeSelector } from "./ThemeSelector";
 import { OptionMenu } from "./OptionMenu";
 import { useOnClickOutside } from "usehooks-ts";
 import { RefObject, useRef } from "react";

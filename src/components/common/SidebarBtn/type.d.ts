@@ -1,4 +1,4 @@
-export interface SidebarBtnType {
+export interface SidebarBtnProps {
   isActive: boolean;
   icon: React.ReactHTMLElement;
   href: string;

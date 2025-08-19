@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { OptionMenuBtn } from "../common/OptionMenuBtn";
-import { SidebarMenu } from "../common/SidebarMenu/SidebarMenu";
+import { OptionMenuBtn } from "../common";
+import { SidebarMenu } from "../common/SidebarMenu";
 import { ThreadsIcon } from "../icons/ThreadsIcon";
 
 export const Sidebar = () => {

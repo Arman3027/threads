@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from "@/lib/hook";
 import { exitReport } from "@/store/features/reportProblem/ReportProblemSlice";
 import { RefObject, useRef } from "react";
 import { useOnClickOutside } from "usehooks-ts";
-import { ReportProblemForm } from "@/components/common/ReportProblemForm";
+import { ReportProblemForm } from "@/components/common";
 
 export const ReportProblem = () => {
   const ref = useRef<HTMLDivElement>(null);
