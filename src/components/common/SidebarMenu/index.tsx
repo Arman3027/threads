@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SidebarBtn } from "../SidebarBtn";
 import type { SidebarMenuType } from "./type";
 import { HomeIcon } from "@/components/icons/HomeIcon";
@@ -11,6 +11,9 @@ export const SidebarMenu = () => {
   const [ActivedBtn, setActivedBtn] = useState<SidebarMenuType>(
     pathname === "/" ? "Home" : "search"
   );
+  useEffect(() => {
+    setActivedBtn(pathname === "/" ? "Home" : "search");
+  }, [pathname]);
   return (
     <div className="w-full flex flex-row lg:flex-col gap-6 p-1">
       <SidebarBtn

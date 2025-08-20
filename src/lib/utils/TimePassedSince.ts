@@ -1,3 +1,4 @@
+"use client";
 export function TimePassedSince(timestamp: string): string {
   const pastDate = new Date(timestamp);
   const now = new Date();

@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { OptionMenuBtn } from "../common";
 import { SidebarMenu } from "../common/SidebarMenu";

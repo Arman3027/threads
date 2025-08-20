@@ -2,13 +2,20 @@
 
 import { Post } from "@/components/ui/Post";
 import { useGetPostsQuery } from "@/store/services/posts/PostsApi";
-import { PostsType, type GetPostsApiQueryArgProps } from "@/types";
+import {
+  CustomResponseType,
+  PostsType,
+  type GetPostsApiQueryArgProps,
+} from "@/types";
+import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { Virtuoso } from "react-virtuoso";
 
 export const GetPosts = ({ search, limit = 10 }: GetPostsApiQueryArgProps) => {
-  const [AllPosts, setAllPosts] = useState<PostsType[]>([]);
+  const [allPosts, setAllPosts] = useState<PostsType[]>([]);
   const [page, setPage] = useState<number>(1);
   const [hasMore, setHasMore] = useState(true);
+  const pathName = usePathname();
   const { data, isLoading, isError, error, isFetching } = useGetPostsQuery(
     {
       search,
@@ -17,6 +24,11 @@ export const GetPosts = ({ search, limit = 10 }: GetPostsApiQueryArgProps) => {
     },
     { skip: !hasMore }
   );
+  useEffect(() => {
+    setAllPosts([]);
+    setPage(1);
+    setHasMore(true);
+  }, [search, limit]);
 
   useEffect(() => {
     if (data?.body?.data) {
@@ -28,7 +40,7 @@ export const GetPosts = ({ search, limit = 10 }: GetPostsApiQueryArgProps) => {
         setHasMore(false);
       }
     }
-  }, [data]);
+  }, [data, limit]);
 
   const observer = useRef<IntersectionObserver | null>(null);
   const lastPostRef = useCallback(
@@ -47,12 +59,27 @@ export const GetPosts = ({ search, limit = 10 }: GetPostsApiQueryArgProps) => {
     [isFetching, hasMore]
   );
 
+  if (pathName == "/search" && search && search.length < 3) {
+    return;
+  }
   if (isLoading) {
     return (
       <div className="m-7 text-base font-medium text-center">Loading...</div>
     );
   }
 
+  if (
+    isError &&
+    "data" in error &&
+    (error.data as CustomResponseType<any>).body?.message ==
+      "String must contain at least 3 character(s)"
+  ) {
+    return (
+      <div className="m-7 text-base font-medium text-center">
+        we need more than 3 character
+      </div>
+    );
+  }
   if (isError) {
     return (
       <div className="m-7 text-base font-medium text-center">
@@ -60,7 +87,7 @@ export const GetPosts = ({ search, limit = 10 }: GetPostsApiQueryArgProps) => {
       </div>
     );
   }
-  if (!isLoading && AllPosts.length === 0) {
+  if (!isLoading && allPosts.length === 0) {
     return (
       <div className="m-7 text-base font-medium text-center">
         No posts found.
@@ -70,11 +97,12 @@ export const GetPosts = ({ search, limit = 10 }: GetPostsApiQueryArgProps) => {
   if (data?.body.data) {
     return (
       <>
-        {AllPosts.map((p, index) => {
-          if (index === AllPosts.length - 1) {
+        {allPosts.map((p, index) => {
+          if (index === allPosts.length - 1) {
             return (
               <div ref={lastPostRef} key={p.id}>
                 <Post
+                  className="first:border-t"
                   Post={{
                     id: p.id,
                     content: p.content,

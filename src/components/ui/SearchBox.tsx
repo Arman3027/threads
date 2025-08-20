@@ -2,8 +2,11 @@
 import { ThreadsIcon } from "../icons/ThreadsIcon";
 import { Button } from "../common/Button";
 import { Footer } from "../common";
+import { GetPosts } from "@/lib/services/post/GetPosts";
+import { useState } from "react";
 
 export const SearchBox = () => {
+  const [text, setText] = useState<string>("");
   return (
     <div className="flex flex-col justify-start items-center gap-2 lg:p-4 lg:w-3xl w-screen">
       <p className="text-base font-medium text-black dark:text-white m-2 hidden lg:block ">
@@ -22,7 +25,14 @@ export const SearchBox = () => {
           className="w-full border rounded-xl my-10 lg:m-0 border-gray-200 bg-gray-100 px-4 py-2 dark:border-gray-800 dark:bg-black text-base font-medium text-gray-800 outline-none placeholder:text-gray-300 dark:text-gray-200 dark:placeholder:text-gray-700"
           type="text"
           placeholder="search..."
+          value={text}
+          onChange={(e) => {
+            setText(e.target.value);
+          }}
         />
+        <div className="py-3">
+          <GetPosts search={text} />
+        </div>
       </div>
       <Footer />
     </div>

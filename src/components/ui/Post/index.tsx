@@ -1,12 +1,19 @@
+"use client";
 import { TimePassedSince } from "@/lib/utils/TimePassedSince";
 import Image from "next/image";
 import type { PostProps } from "./type";
 import { CopyLinkBtn } from "@/components/common/CopyLinkBtn";
 import Link from "next/link";
+import { cn } from "@/lib/utils/cn";
 
-export const Post = ({ Post }: PostProps) => {
+export const Post = ({ Post, className }: PostProps) => {
   return (
-    <div className="w-full min-h-24 py-4 px-8 flex gap-2  first:border-0 border-t border-gray-200 dark:border-gray-800">
+    <div
+      className={cn(
+        "w-full min-h-24 py-4 px-8 flex gap-2 first:border-t-0 border-t border-gray-200 dark:border-gray-800",
+        className && className
+      )}
+    >
       <div>
         <Image
           src="/Image/unknownPerson.jpg"
