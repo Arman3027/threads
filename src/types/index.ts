@@ -4,6 +4,7 @@ export type {
   ChildrenProps,
   RegisterBodyType,
   LoginBodyType,
+  UserType,
 } from "./types";
 export type {
   CustomResponseOptionsType,
