@@ -2,6 +2,8 @@ export type {
   PostsType,
   GetPostsApiQueryArgProps,
   ChildrenProps,
+  RegisterBodyType,
+  LoginBodyType,
 } from "./types";
 export type {
   CustomResponseOptionsType,

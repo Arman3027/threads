@@ -10,7 +10,7 @@ export const Post = ({ Post, className }: PostProps) => {
   return (
     <div
       className={cn(
-        "w-full min-h-24 py-4 px-8 flex gap-2 first:border-t-0 border-t border-gray-200 dark:border-gray-800",
+        "w-full min-h-24 py-4 px-8 flex gap-2 border-t border-gray-200 dark:border-gray-800",
         className && className
       )}
     >

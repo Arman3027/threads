@@ -21,3 +21,9 @@ export interface GetPostsApiQueryArgProps {
 export interface ChildrenProps {
   children: React.ReactNode;
 }
+
+export interface RegisterBodyType extends Omit<IUser, "id" | "joined_at"> {
+  confirm_password: string;
+}
+
+export type LoginBodyType = Pick<IUser, "email" | "password">;

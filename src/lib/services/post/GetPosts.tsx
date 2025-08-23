@@ -42,23 +42,6 @@ export const GetPosts = ({ search, limit = 10 }: GetPostsApiQueryArgProps) => {
     }
   }, [data, limit]);
 
-  const observer = useRef<IntersectionObserver | null>(null);
-  const lastPostRef = useCallback(
-    (node: HTMLDivElement | null) => {
-      if (isFetching || !hasMore) return;
-      if (observer.current) observer.current.disconnect();
-
-      observer.current = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting) {
-          setPage((prev) => prev + 1);
-        }
-      });
-
-      if (node) observer.current.observe(node);
-    },
-    [isFetching, hasMore]
-  );
-
   if (pathName == "/search" && search && search.length < 3) {
     return;
   }
@@ -96,52 +79,33 @@ export const GetPosts = ({ search, limit = 10 }: GetPostsApiQueryArgProps) => {
   }
   if (data?.body.data) {
     return (
-      <>
-        {allPosts.map((p, index) => {
-          if (index === allPosts.length - 1) {
-            return (
-              <div ref={lastPostRef} key={p.id}>
-                <Post
-                  className="first:border-t"
-                  Post={{
-                    id: p.id,
-                    content: p.content,
-                    author: {
-                      id: p.author.id,
-                      email: p.author.email,
-                      full_name: p.author.full_name,
-                      joined_at: p.author.joined_at,
-                    },
-                    created_at: p.created_at,
-                  }}
-                />
-              </div>
-            );
+      <Virtuoso
+        className="no-scrollbar"
+        data={allPosts}
+        endReached={() => {
+          if (!isFetching && hasMore) {
+            setPage((prev) => prev + 1);
           }
-
-          return (
-            <Post
-              key={p.id}
-              Post={{
-                id: p.id,
-                content: p.content,
-                author: {
-                  id: p.author.id,
-                  email: p.author.email,
-                  full_name: p.author.full_name,
-                  joined_at: p.author.joined_at,
-                },
-                created_at: p.created_at,
-              }}
-            />
-          );
-        })}
-        {isFetching && hasMore && (
-          <div className="m-7 text-base font-medium text-center">
-            Loading more...
-          </div>
+        }}
+        overscan={200}
+        useWindowScroll
+        itemContent={(index, post) => (
+          <Post
+            Post={{
+              id: post.id,
+              content: post.content,
+              author: {
+                id: post.author.id,
+                email: post.author.email,
+                full_name: post.author.full_name,
+                joined_at: post.author.joined_at,
+              },
+              created_at: post.created_at,
+            }}
+            className={index === 0 ? "border-t-0" : ""}
+          />
         )}
-      </>
+      />
     );
   }
 };

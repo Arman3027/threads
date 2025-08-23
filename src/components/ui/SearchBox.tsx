@@ -30,7 +30,7 @@ export const SearchBox = () => {
             setText(e.target.value);
           }}
         />
-        <div className="py-3">
+        <div className="pt-3 pb-1">
           <GetPosts search={text} />
         </div>
       </div>
