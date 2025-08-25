@@ -10,8 +10,16 @@ import {
   loginFormValues,
 } from "@/lib/constants/FormSchema/loginFormSchema";
 import LoginFields from "@/lib/constants/Fields/LoginFields";
+import { useLoginMutation } from "@/store/services/auth";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { setIsAuthenticated } from "@/store/features/isAuthenticated/AuthenticatedSlice";
 
 export const LoginForm = () => {
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const [IsLogin] = useLoginMutation();
   const {
     register,
     handleSubmit,
@@ -20,8 +28,23 @@ export const LoginForm = () => {
     resolver: zodResolver(loginFormSchema),
   });
 
-  const onsubmit = (data: loginFormValues) => {
-    console.log(data);
+  const onsubmit = async (data: loginFormValues) => {
+    try {
+      const promise = IsLogin(data).unwrap();
+      toast.promise(promise, {
+        loading: "wait...",
+        success: <b>login is successful</b>,
+        error: <b>something went wrong</b>,
+      });
+      const res = await promise;
+      console.log(res);
+      localStorage.setItem("id", res.body.data?.id as string);
+      dispatch(setIsAuthenticated(true));
+      router.push("/");
+      router.refresh();
+    } catch (err) {
+      toast.error("login failed: " + (err as any).message || "Unknown error");
+    }
   };
   return (
     <CustomForm title="Login" onSubmit={handleSubmit(onsubmit)}>

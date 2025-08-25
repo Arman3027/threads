@@ -52,7 +52,7 @@ export const CopyLinkBtn = ({ PostID }: CopyLinkBtnType) => {
         <MoreIcon ref={refSvg as RefObject<SVGSVGElement>} />
       </button>
       {isPostActive && (
-        <button className="absolute right-0 bottom-0 w-48 -translate-x-1/6 translate-y-5/6">
+        <div className="absolute right-0 bottom-0 w-48 -translate-x-1/6 translate-y-5/6">
           <ItemOptionMenu
             ref={refMenu as RefObject<HTMLButtonElement>}
             className="border py-1 px-2 border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 rounded-2xl"
@@ -60,7 +60,7 @@ export const CopyLinkBtn = ({ PostID }: CopyLinkBtnType) => {
             icon={<LinkIcon />}
             onClick={handleCopy}
           />
-        </button>
+        </div>
       )}
     </div>
   );

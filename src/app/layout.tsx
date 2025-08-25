@@ -2,6 +2,7 @@ import Provider from "@/lib/ThemeProvider";
 import "@/styles/globals.css";
 import { ReduxProvider } from "@/lib/ReduxProvider";
 import { Toaster } from "react-hot-toast";
+import { AuthProvider } from "@/lib/AuthProvider";
 
 export default function RootLayout({
   children,
@@ -13,8 +14,10 @@ export default function RootLayout({
       <body className="font-poppins bg-[#f5f5f5] dark:bg-black font-normal">
         <Provider>
           <ReduxProvider>
-            <Toaster position="top-center" />
-            {children}
+            <AuthProvider>
+              <Toaster position="top-center" />
+              {children}
+            </AuthProvider>
           </ReduxProvider>
         </Provider>
       </body>

@@ -2,10 +2,13 @@ import { configureStore } from "@reduxjs/toolkit";
 import menuSliceReducer from "./features/menu/MenuSlice";
 import reportProblemSlice from "./features/reportProblem/ReportProblemSlice";
 import api from "./services/api";
+import auth from "./services/auth";
+import authSlice from "./features/isAuthenticated/AuthenticatedSlice";
 
 const rootReducer = {
   menu: menuSliceReducer,
   reportProblem: reportProblemSlice.reducer,
+  auth: authSlice.reducer,
   [api.reducerPath]: api.reducer,
 };
 export const Store = configureStore({

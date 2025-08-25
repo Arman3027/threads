@@ -12,8 +12,10 @@ import {
 import RegisterFields from "@/lib/constants/Fields/RegisterFields";
 import { useRegisterMutation } from "@/store/services/auth";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 export const RegisterForm = () => {
+  const router = useRouter();
   const [sendNewUser, { isLoading }] = useRegisterMutation();
   const {
     register,
@@ -23,13 +25,24 @@ export const RegisterForm = () => {
     resolver: zodResolver(registerFormSchema),
   });
 
-  const onsubmit = (data: registerFormValues) => {
-    const res = sendNewUser(data);
-    toast.promise(res, {
-      loading: "wait...",
-      success: <b>register is successful</b>,
-      error: <b>somthing went wrong</b>,
-    });
+  const onsubmit = async (data: registerFormValues) => {
+    try {
+      const promise = sendNewUser(data).unwrap();
+
+      toast.promise(promise, {
+        loading: "wait...",
+        success: <b>register is successful</b>,
+        error: <b>something went wrong</b>,
+      });
+
+      const res = await promise;
+
+      router.push("/login");
+    } catch (err) {
+      toast.error(
+        "register failed: " + (err as any).message || "Unknown error"
+      );
+    }
   };
   return (
     <CustomForm title="Register" onSubmit={handleSubmit(onsubmit)}>

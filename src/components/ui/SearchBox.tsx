@@ -3,7 +3,9 @@ import { ThreadsIcon } from "../icons/ThreadsIcon";
 import { Button } from "../common/Button";
 import { Footer } from "../common";
 import { GetPosts } from "@/lib/services/post/GetPosts";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useAppSelector } from "@/lib/hook";
+import { ActionButton } from "../common/ActionButton";
 
 export const SearchBox = () => {
   const [text, setText] = useState<string>("");
@@ -17,9 +19,7 @@ export const SearchBox = () => {
           <div className="size-8">
             <ThreadsIcon />
           </div>
-          <Button className="absolute right-0 mr-0.5" href="/login">
-            Login
-          </Button>
+          <ActionButton className="absolute right-0 mr-0.5" />
         </div>
         <input
           className="w-full border rounded-xl my-10 lg:m-0 border-gray-200 bg-gray-100 px-4 py-2 dark:border-gray-800 dark:bg-black text-base font-medium text-gray-800 outline-none placeholder:text-gray-300 dark:text-gray-200 dark:placeholder:text-gray-700"
@@ -31,7 +31,11 @@ export const SearchBox = () => {
           }}
         />
         <div className="pt-3 pb-1">
-          <GetPosts search={text} />
+          {text.length >= 3 ? (
+            <GetPosts search={text} />
+          ) : (
+            <div className="w-full text-center">we need more character</div>
+          )}
         </div>
       </div>
       <Footer />

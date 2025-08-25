@@ -8,9 +8,8 @@ import {
   type GetPostsApiQueryArgProps,
 } from "@/types";
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Virtuoso } from "react-virtuoso";
-import { getPosts } from "../posts";
 
 export const GetPosts = ({ search, limit = 10 }: GetPostsApiQueryArgProps) => {
   const [allPosts, setAllPosts] = useState<PostsType[]>([]);
@@ -43,25 +42,9 @@ export const GetPosts = ({ search, limit = 10 }: GetPostsApiQueryArgProps) => {
     }
   }, [data, limit]);
 
-  if (pathName == "/search" && search && search.length < 3) {
-    return;
-  }
   if (isLoading) {
     return (
       <div className="m-7 text-base font-medium text-center">Loading...</div>
-    );
-  }
-
-  if (
-    isError &&
-    "data" in error &&
-    (error.data as CustomResponseType<any>).body?.message ==
-      "String must contain at least 3 character(s)"
-  ) {
-    return (
-      <div className="m-7 text-base font-medium text-center">
-        we need more than 3 character
-      </div>
     );
   }
   if (isError) {
