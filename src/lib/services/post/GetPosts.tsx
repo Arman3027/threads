@@ -1,7 +1,7 @@
 "use client";
 
 import { Post } from "@/components/ui/Post";
-import { useGetPostsQuery } from "@/store/services/posts/PostsApi";
+import { useGetPostsQuery } from "@/store/services/posts";
 import {
   CustomResponseType,
   PostsType,
@@ -10,6 +10,7 @@ import {
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Virtuoso } from "react-virtuoso";
+import { getPosts } from "../posts";
 
 export const GetPosts = ({ search, limit = 10 }: GetPostsApiQueryArgProps) => {
   const [allPosts, setAllPosts] = useState<PostsType[]>([]);

@@ -10,8 +10,11 @@ import {
   registerFormValues,
 } from "@/lib/constants/FormSchema/registerFormSchema";
 import RegisterFields from "@/lib/constants/Fields/RegisterFields";
+import { useRegisterMutation } from "@/store/services/auth";
+import toast from "react-hot-toast";
 
 export const RegisterForm = () => {
+  const [sendNewUser, { isLoading }] = useRegisterMutation();
   const {
     register,
     handleSubmit,
@@ -21,7 +24,12 @@ export const RegisterForm = () => {
   });
 
   const onsubmit = (data: registerFormValues) => {
-    console.log(data);
+    const res = sendNewUser(data);
+    toast.promise(res, {
+      loading: "wait...",
+      success: <b>register is successful</b>,
+      error: <b>somthing went wrong</b>,
+    });
   };
   return (
     <CustomForm title="Register" onSubmit={handleSubmit(onsubmit)}>

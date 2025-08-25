@@ -5,6 +5,12 @@ export type {
   RegisterBodyType,
   LoginBodyType,
   UserType,
+  AddRemportBodyType,
+  ReportType,
+  StatusCode,
+  AddPostsBodyType,
+  AddPostsInput,
+  PostsOptionType,
 } from "./types";
 export type {
   CustomResponseOptionsType,
@@ -14,3 +20,4 @@ export type {
   PaginationType,
   ResponseBodyType,
 } from "./responseTypes";
+export type { Database } from "./supbase";
