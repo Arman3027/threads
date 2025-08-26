@@ -4,6 +4,13 @@ import { ReduxProvider } from "@/lib/ReduxProvider";
 import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "@/lib/AuthProvider";
 
+export const metadata = {
+  title: "threads",
+  icons: {
+    icon: "/threads-img.png",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
