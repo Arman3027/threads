@@ -32,7 +32,6 @@ export const SendPost = () => {
       const res = await promise;
       router.push("/");
     } catch (err) {
-      console.log(err);
       toast.error(
         "faild to send post :" + (err as any).data.body.message ||
           "Unknown error"

@@ -9,10 +9,12 @@ import { usePathname } from "next/navigation";
 export const SidebarMenu = () => {
   const pathname = usePathname();
   const [ActivedBtn, setActivedBtn] = useState<SidebarMenuType>(
-    pathname === "/" ? "Home" : "search"
+    pathname === "/" ? "Home" : pathname === "/search" ? "search" : ""
   );
   useEffect(() => {
-    setActivedBtn(pathname === "/" ? "Home" : "search");
+    setActivedBtn(
+      pathname === "/" ? "Home" : pathname === "/search" ? "search" : ""
+    );
   }, [pathname]);
   return (
     <div className="w-full flex flex-row lg:flex-col gap-6 p-1">

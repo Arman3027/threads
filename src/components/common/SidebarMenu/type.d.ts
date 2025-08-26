@@ -1,1 +1,1 @@
-export type SidebarMenuType = "Home" | "search";
+export type SidebarMenuType = "Home" | "search" | "";

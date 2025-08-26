@@ -1,8 +1,7 @@
+"use client";
 import Link from "next/link";
-
 import type { HeaderProps } from "./type";
 import { ThreadsIcon } from "@/components/icons/ThreadsIcon";
-import { Button } from "../Button";
 import { useEffect, useState } from "react";
 import { useAppSelector } from "@/lib/hook";
 import { ActionButton } from "../ActionButton";

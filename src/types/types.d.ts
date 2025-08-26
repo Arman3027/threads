@@ -23,6 +23,9 @@ export interface GetPostsApiQueryArgProps {
 export interface ChildrenProps {
   children: React.ReactNode;
 }
+export interface PostIdProps {
+  postId: string;
+}
 export interface UserType {
   id: string;
   full_name: string;

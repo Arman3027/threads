@@ -36,7 +36,7 @@ export const Post = ({ Post, className }: PostProps) => {
           </div>
           <CopyLinkBtn PostID={Post.id} />
         </div>
-        <Link href={`/`}>
+        <Link href={`/post/${Post.id}`}>
           <p className="text-base font-normal text-gray-700 dark:text-gray-300">
             {Post.content}
           </p>

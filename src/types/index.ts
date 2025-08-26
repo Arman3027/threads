@@ -12,6 +12,7 @@ export type {
   AddPostsInput,
   PostsOptionType,
   AddPostsForPost,
+  PostIdProps,
 } from "./types";
 export type {
   CustomResponseOptionsType,
