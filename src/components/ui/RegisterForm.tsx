@@ -40,7 +40,7 @@ export const RegisterForm = () => {
       router.push("/login");
     } catch (err) {
       toast.error(
-        "register failed: " + (err as any).message || "Unknown error"
+        "register failed: " + (err as any).data.body.message || "Unknown error"
       );
     }
   };

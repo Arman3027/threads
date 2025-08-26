@@ -43,7 +43,9 @@ export const LoginForm = () => {
       router.push("/");
       router.refresh();
     } catch (err) {
-      toast.error("login failed: " + (err as any).message || "Unknown error");
+      toast.error(
+        "login failed: " + (err as any).data.body.message || "Unknown error"
+      );
     }
   };
   return (

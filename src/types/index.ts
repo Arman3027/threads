@@ -5,7 +5,6 @@ export type {
   RegisterBodyType,
   LoginBodyType,
   UserType,
-  AddRemportBodyType,
   ReportType,
   StatusCode,
   AddPostsBodyType,
@@ -13,6 +12,8 @@ export type {
   PostsOptionType,
   AddPostsForPost,
   PostIdProps,
+  SendReportInput,
+  AddReportBodyType,
 } from "./types";
 export type {
   CustomResponseOptionsType,

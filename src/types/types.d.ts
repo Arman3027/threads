@@ -45,8 +45,6 @@ export interface ReportType {
   message: string;
 }
 
-export type AddRemportBodyType = Omit<ReportType, "id">;
-
 import type { IUser } from "./user";
 import type { IPaginationOptions } from "./pagination";
 import { PaginationType } from "./responseTypes";
@@ -60,7 +58,12 @@ export interface PostsOptionType extends Omit<PaginationoptionsType, "data"> {
 }
 
 export type AddPostsInput = Pick<PostsType, "content">;
+export type SendReportInput = {
+  message: string;
+};
 export type AddPostsForPost = {
   content: string;
   created_at: string;
 };
+
+export type AddReportBodyType = Omit<ReportType, "id">;
