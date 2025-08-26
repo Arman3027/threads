@@ -2,12 +2,13 @@ import type {
   CustomResponseType,
   GetPostsApiQueryArgProps,
   PostsType,
+  AddPostsForPost,
 } from "@/types";
 import api from "../api";
 
 const postApi = api.injectEndpoints({
   endpoints: (builder) => ({
-    addPost: builder.mutation<CustomResponseType<void>, PostsType>({
+    addPost: builder.mutation<CustomResponseType<void>, AddPostsForPost>({
       query: (newPost) => ({
         url: "/posts",
         method: "post",
@@ -38,4 +39,5 @@ const postApi = api.injectEndpoints({
 });
 
 export default postApi;
-export const { useGetPostsQuery } = postApi;
+export const { useGetPostsQuery, useAddPostMutation, useGetPostQuery } =
+  postApi;

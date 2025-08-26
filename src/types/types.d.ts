@@ -35,7 +35,7 @@ export interface RegisterBodyType extends Omit<UserType, "id" | "joined_at"> {
   confirm_password: string;
 }
 
-export type LoginBodyType = Pick<IUser, "email" | "password">;
+export type LoginBodyType = Pick<UserType, "email" | "password">;
 
 export interface ReportType {
   id: string;
@@ -48,7 +48,7 @@ import type { IUser } from "./user";
 import type { IPaginationOptions } from "./pagination";
 import { PaginationType } from "./responseTypes";
 
-export interface AddPostsBodyType extends Pick<IPost, "content"> {
+export interface AddPostsBodyType extends Pick<PostsType, "content"> {
   author: string;
 }
 
@@ -56,4 +56,8 @@ export interface PostsOptionType extends Omit<PaginationoptionsType, "data"> {
   search?: string;
 }
 
-export type AddPostsInput = Pick<IPost, "content">;
+export type AddPostsInput = Pick<PostsType, "content">;
+export type AddPostsForPost = {
+  content: string;
+  created_at: string;
+};

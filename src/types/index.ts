@@ -11,6 +11,7 @@ export type {
   AddPostsBodyType,
   AddPostsInput,
   PostsOptionType,
+  AddPostsForPost,
 } from "./types";
 export type {
   CustomResponseOptionsType,

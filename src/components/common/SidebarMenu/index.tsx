@@ -20,17 +20,11 @@ export const SidebarMenu = () => {
         isActive={ActivedBtn === "Home"}
         icon={<HomeIcon />}
         href="/"
-        onClick={() => {
-          setActivedBtn("Home");
-        }}
       />
       <SidebarBtn
         isActive={ActivedBtn === "search"}
         icon={<SearchIcon />}
         href="/search"
-        onClick={() => {
-          setActivedBtn("search");
-        }}
       />
     </div>
   );
