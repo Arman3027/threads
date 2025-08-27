@@ -10,7 +10,7 @@ export const GetPosts = ({ search, limit = 10 }: GetPostsApiQueryArgProps) => {
   const [allPosts, setAllPosts] = useState<PostsType[]>([]);
   const [page, setPage] = useState<number>(1);
   const [hasMore, setHasMore] = useState(true);
-  const { data, isLoading, isError, error, isFetching } = useGetPostsQuery(
+  const { data, isLoading, isError, isFetching } = useGetPostsQuery(
     {
       search,
       limit,

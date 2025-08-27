@@ -11,7 +11,7 @@ import toast from "react-hot-toast";
 import Cookies from "js-cookie";
 
 export const CopyLinkBtn = ({ PostID }: CopyLinkBtnType) => {
-  const [copiedText, copy] = useCopyToClipboard();
+  const [, copy] = useCopyToClipboard();
   const refSvg = useRef<SVGSVGElement>(null);
   const refMenu = useRef<HTMLButtonElement>(null);
 
@@ -41,7 +41,7 @@ export const CopyLinkBtn = ({ PostID }: CopyLinkBtnType) => {
       });
     }
   };
-  useOnClickOutside(refMenu as RefObject<HTMLElement>, (e) => {
+  useOnClickOutside(refMenu as RefObject<HTMLElement>, () => {
     dispatch(togglePostMenu(null));
   });
   return (

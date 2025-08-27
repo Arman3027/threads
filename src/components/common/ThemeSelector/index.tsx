@@ -22,7 +22,7 @@ export const ThemeSelector = ({ ref }: ThemeSelectorProps) => {
     } else {
       setSavedTheme("auto");
     }
-  });
+  }, []);
 
   const dispatch = useAppDispatch();
   const { isThemeSelectorActive } = useAppSelector((state) => {

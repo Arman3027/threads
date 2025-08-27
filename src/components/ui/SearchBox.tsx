@@ -1,10 +1,8 @@
 "use client";
 import { ThreadsIcon } from "../icons/ThreadsIcon";
-import { Button } from "../common/Button";
 import { Footer } from "../common";
 import { GetPosts } from "@/lib/services/post/GetPosts";
-import { useEffect, useState } from "react";
-import { useAppSelector } from "@/lib/hook";
+import { useState } from "react";
 import { ActionButton } from "../common/ActionButton";
 
 export const SearchBox = () => {

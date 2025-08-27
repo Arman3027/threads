@@ -3,7 +3,7 @@ import addReportSchema from "@/lib/constants/FormSchema/addRemoteSchema";
 import { useAppDispatch } from "@/lib/hook";
 import { exitReport } from "@/store/features/reportProblem/ReportProblemSlice";
 import { useAddReportMutation } from "@/store/services/report";
-import { SendReportInputType } from "@/types";
+import { CustomResponseType, SendReportInputType } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -11,11 +11,7 @@ import toast from "react-hot-toast";
 export const ReportProblemForm = () => {
   const dispatch = useAppDispatch();
   const [sendReport] = useAddReportMutation();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+  const { register, handleSubmit } = useForm({
     resolver: zodResolver(addReportSchema),
   });
   const handleSendReport = async (data: SendReportInputType) => {
@@ -28,13 +24,17 @@ export const ReportProblemForm = () => {
         error: <b>something went wrong</b>,
       });
 
-      const res = await promise;
+      await promise;
       dispatch(exitReport());
-    } catch (err) {
-      toast.error(
-        "report send failed: " + (err as any).data.body.message ||
-          "Unknown error"
-      );
+    } catch (error) {
+      if (error && typeof error === "object" && "data" in error) {
+        const errorMessage =
+          (error.data as CustomResponseType<void>).body.message ??
+          "unknown error";
+        toast.error(errorMessage);
+      } else {
+        toast.error("unknown error");
+      }
     }
   };
 

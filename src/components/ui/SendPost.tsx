@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import addPostSchema from "@/lib/constants/FormSchema/addPostSchema";
 import { useRouter } from "next/navigation";
 import { useAddPostMutation } from "@/store/services/posts";
-import { AddPostsInputType } from "@/types";
+import { AddPostsInputType, CustomResponseType } from "@/types";
 import toast from "react-hot-toast";
 import { getNowFormatted } from "@/lib/utils";
 
@@ -29,13 +29,17 @@ export const SendPost = () => {
         success: <b>sended</b>,
         error: <b>somthing went wrong</b>,
       });
-      const res = await promise;
+      await promise;
       router.push("/");
-    } catch (err) {
-      toast.error(
-        "faild to send post :" + (err as any).data.body.message ||
-          "Unknown error"
-      );
+    } catch (error) {
+      if (error && typeof error === "object" && "data" in error) {
+        const errorMessage =
+          (error.data as CustomResponseType<void>).body.message ??
+          "unknown error";
+        toast.error(errorMessage);
+      } else {
+        toast.error("unknown error");
+      }
     }
   };
   return (

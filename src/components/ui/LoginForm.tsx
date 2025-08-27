@@ -16,6 +16,7 @@ import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { setIsAuthenticated } from "@/store/features/isAuthenticated/AuthenticatedSlice";
 import Cookies from "js-cookie";
+import { CustomResponseType } from "@/types";
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -43,10 +44,15 @@ export const LoginForm = () => {
       dispatch(setIsAuthenticated(true));
       router.push("/");
       router.refresh();
-    } catch (err) {
-      toast.error(
-        "login failed: " + (err as any).data.body.message || "Unknown error"
-      );
+    } catch (error) {
+      if (error && typeof error === "object" && "data" in error) {
+        const errorMessage =
+          (error.data as CustomResponseType<void>).body.message ??
+          "unknown error";
+        toast.error(errorMessage);
+      } else {
+        toast.error("unknown error");
+      }
     }
   };
   return (

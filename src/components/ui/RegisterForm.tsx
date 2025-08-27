@@ -13,10 +13,11 @@ import RegisterFields from "@/lib/constants/Fields/RegisterFields";
 import { useRegisterMutation } from "@/store/services/auth";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { CustomResponseType } from "@/types";
 
 export const RegisterForm = () => {
   const router = useRouter();
-  const [sendNewUser, { isLoading }] = useRegisterMutation();
+  const [sendNewUser] = useRegisterMutation();
   const {
     register,
     handleSubmit,
@@ -35,13 +36,18 @@ export const RegisterForm = () => {
         error: <b>something went wrong</b>,
       });
 
-      const res = await promise;
+      await promise;
 
       router.push("/login");
-    } catch (err) {
-      toast.error(
-        "register failed: " + (err as any).data.body.message || "Unknown error"
-      );
+    } catch (error) {
+      if (error && typeof error === "object" && "data" in error) {
+        const errorMessage =
+          (error.data as CustomResponseType<void>).body.message ??
+          "unknown error";
+        toast.error(errorMessage);
+      } else {
+        toast.error("unknown error");
+      }
     }
   };
   return (
