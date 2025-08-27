@@ -39,5 +39,10 @@ const postApi = api.injectEndpoints({
 });
 
 export default postApi;
-export const { useGetPostsQuery, useAddPostMutation, useGetPostQuery } =
-  postApi;
+export const {
+  useGetPostsQuery,
+  useAddPostMutation,
+  useGetPostQuery,
+  useLazyGetPostQuery,
+  useLazyGetPostsQuery,
+} = postApi;

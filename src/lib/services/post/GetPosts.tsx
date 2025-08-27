@@ -2,12 +2,7 @@
 
 import { Post } from "@/components/ui/Post";
 import { useGetPostsQuery } from "@/store/services/posts";
-import {
-  CustomResponseType,
-  PostsType,
-  type GetPostsApiQueryArgProps,
-} from "@/types";
-import { usePathname } from "next/navigation";
+import { PostsType, type GetPostsApiQueryArgProps } from "@/types";
 import { useEffect, useState } from "react";
 import { Virtuoso } from "react-virtuoso";
 
@@ -15,7 +10,6 @@ export const GetPosts = ({ search, limit = 10 }: GetPostsApiQueryArgProps) => {
   const [allPosts, setAllPosts] = useState<PostsType[]>([]);
   const [page, setPage] = useState<number>(1);
   const [hasMore, setHasMore] = useState(true);
-  const pathName = usePathname();
   const { data, isLoading, isError, error, isFetching } = useGetPostsQuery(
     {
       search,
@@ -41,12 +35,6 @@ export const GetPosts = ({ search, limit = 10 }: GetPostsApiQueryArgProps) => {
       }
     }
   }, [data, limit]);
-
-  if (isLoading) {
-    return (
-      <div className="m-7 text-base font-medium text-center">Loading...</div>
-    );
-  }
   if (isError) {
     return (
       <div className="m-7 text-base font-medium text-center">

@@ -7,20 +7,20 @@ export function TimePassedSince(timestamp: string): string {
   if (diffMs < 0) return "Date is in the future";
 
   const seconds = Math.floor(diffMs / 1000);
-  if (seconds < 60) return `${seconds} second${seconds !== 1 ? "s" : ""} ago`;
+  if (seconds < 60) return `${seconds}s`;
 
   const minutes = Math.floor(seconds / 60);
-  if (minutes < 60) return `${minutes} minute${minutes !== 1 ? "s" : ""} ago`;
+  if (minutes < 60) return `${minutes}m`;
 
   const hours = Math.floor(minutes / 60);
-  if (hours < 24) return `${hours} hour${hours !== 1 ? "s" : ""} ago`;
+  if (hours < 24) return `${hours}h`;
 
   const days = Math.floor(hours / 24);
-  if (days < 30) return `${days} day${days !== 1 ? "s" : ""} ago`;
+  if (days < 30) return `${days}d`;
 
   const months = Math.floor(days / 30);
-  if (months < 12) return `${months} month${months !== 1 ? "s" : ""} ago`;
+  if (months < 12) return `${months}M`;
 
   const years = Math.floor(months / 12);
-  return `${years} year${years !== 1 ? "s" : ""} ago`;
+  return `${years}y`;
 }

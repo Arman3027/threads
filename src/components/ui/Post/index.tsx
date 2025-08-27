@@ -26,7 +26,7 @@ export const Post = ({ Post, className }: PostProps) => {
       <div className="flex w-full flex-col gap-2">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-1">
-            <h5 className="w-fit text-lg font-medium text-gray-800 dark:text-gray-200">
+            <h5 className=" font-medium text-gray-800 dark:text-gray-200">
               {Post.author.full_name}
             </h5>
             <span className="text-sm text-gray-600 dark:text-gray-400">•</span>

@@ -1,6 +1,6 @@
 import { Provider } from "@/lib/providers";
 import "@/styles/globals.css";
-import { ReduxProvider } from "@/lib/providers";
+import { ReduxProvider } from "@/lib/providers/";
 import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "@/lib/providers";
 
