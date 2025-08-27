@@ -9,13 +9,13 @@ import HttpStatusCode from "@/lib/constants/HttpStatusCode";
 import Messages from "@/lib/constants/Messages";
 
 import type { NextRequest, NextResponse } from "next/server";
-import type { AddRemportBodyType } from "@/types";
+import type { AddReportBodyType } from "@/types";
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
-    const body: AddRemportBodyType = await req.json();
+    const body: AddReportBodyType = await req.json();
 
-    validateData<AddRemportBodyType>(addReportSchema, body);
+    validateData<AddReportBodyType>(addReportSchema, body);
     await addReport(body);
 
     return CustomResponse({
