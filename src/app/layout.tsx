@@ -1,8 +1,8 @@
-import Provider from "@/lib/ThemeProvider";
+import { Provider } from "@/lib/providers";
 import "@/styles/globals.css";
-import { ReduxProvider } from "@/lib/ReduxProvider";
+import { ReduxProvider } from "@/lib/providers";
 import { Toaster } from "react-hot-toast";
-import { AuthProvider } from "@/lib/AuthProvider";
+import { AuthProvider } from "@/lib/providers";
 
 export const metadata = {
   title: "threads",
@@ -17,8 +17,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning={true}>
-      <body className="font-poppins bg-[#f5f5f5] dark:bg-black font-normal">
+    <html lang="en" suppressHydrationWarning>
+      <body
+        suppressHydrationWarning
+        className="font-poppins bg-[#f5f5f5] dark:bg-black font-normal"
+      >
         <Provider>
           <ReduxProvider>
             <AuthProvider>

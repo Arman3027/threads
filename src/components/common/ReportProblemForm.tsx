@@ -3,7 +3,7 @@ import addReportSchema from "@/lib/constants/FormSchema/addRemoteSchema";
 import { useAppDispatch } from "@/lib/hook";
 import { exitReport } from "@/store/features/reportProblem/ReportProblemSlice";
 import { useAddReportMutation } from "@/store/services/report";
-import { SendReportInput } from "@/types";
+import { SendReportInputType } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -18,7 +18,7 @@ export const ReportProblemForm = () => {
   } = useForm({
     resolver: zodResolver(addReportSchema),
   });
-  const handleSendReport = async (data: SendReportInput) => {
+  const handleSendReport = async (data: SendReportInputType) => {
     try {
       const promise = sendReport(data).unwrap();
 

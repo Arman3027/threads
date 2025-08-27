@@ -1,6 +1,6 @@
 "use client";
 import { useAppDispatch, useAppSelector } from "@/lib/hook";
-import { OptionMenuIcon } from "../icons/OptionMenuIcon";
+import { OptionMenuIcon } from "../icons";
 import {
   exitMenu,
   exitThemeMenu,

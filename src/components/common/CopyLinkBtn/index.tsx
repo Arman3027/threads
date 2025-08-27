@@ -3,11 +3,12 @@ import type { CopyLinkBtnType } from "./type";
 import { useAppDispatch, useAppSelector } from "@/lib/hook";
 import { togglePostMenu } from "@/store/features/menu/MenuSlice";
 import { ItemOptionMenu } from "../ItemOptionMenu";
-import { LinkIcon } from "@/components/icons/LinkIcon";
+import { LinkIcon } from "@/components/icons";
 import { RefObject, useRef } from "react";
 import { useCopyToClipboard, useOnClickOutside } from "usehooks-ts";
 import { MoreIcon } from "@/components/icons/MoreIcon";
 import toast from "react-hot-toast";
+import Cookies from "js-cookie";
 
 export const CopyLinkBtn = ({ PostID }: CopyLinkBtnType) => {
   const [copiedText, copy] = useCopyToClipboard();
@@ -23,7 +24,7 @@ export const CopyLinkBtn = ({ PostID }: CopyLinkBtnType) => {
     dispatch(togglePostMenu(PostID));
   };
   const handleCopy = async () => {
-    const theme = localStorage.getItem("theme");
+    const theme = Cookies.get("theme");
     await copy(`${window.location.origin.toString()}/post/${PostID}`);
     dispatch(togglePostMenu(null));
     if (theme === "dark") {

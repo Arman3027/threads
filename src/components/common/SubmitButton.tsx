@@ -1,6 +1,6 @@
-import type { SubmitButtonProps } from "./type";
+import { ChildrenProps } from "@/types";
 
-export const SubmitButton = ({ children }: SubmitButtonProps) => {
+export const SubmitButton = ({ children }: ChildrenProps) => {
   return (
     <button
       type="submit"

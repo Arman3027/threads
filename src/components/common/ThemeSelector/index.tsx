@@ -1,21 +1,22 @@
 "use client";
 
-import { ArrowLeftIcon } from "@/components/icons/ArrowIcons";
+import { ArrowLeftIcon } from "@/components/icons";
 import { useTheme } from "next-themes";
-import { cn } from "@/lib/utils/cn";
-import { SunIcon } from "@/components/icons/SunIcon";
-import { MoonIcon } from "@/components/icons/MoonIcon";
+import { cn } from "@/lib/utils";
+import { SunIcon } from "@/components/icons";
+import { MoonIcon } from "@/components/icons";
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/lib/hook";
 import { exitThemeMenu, showMenu } from "@/store/features/menu/MenuSlice";
 import type { SavedThemeType, ThemeSelectorProps } from "./type";
+import Cookies from "js-cookie";
 
 export const ThemeSelector = ({ ref }: ThemeSelectorProps) => {
   const { theme, setTheme } = useTheme();
   const [savedTheme, setSavedTheme] = useState<SavedThemeType>();
 
   useEffect(() => {
-    const x = localStorage.getItem("savedTheme");
+    const x = Cookies.get("savedTheme");
     if (x === "auto" || x === "dark" || x === "light") {
       setSavedTheme(x);
     } else {
@@ -54,7 +55,7 @@ export const ThemeSelector = ({ ref }: ThemeSelectorProps) => {
             <button
               onClick={() => {
                 setSavedTheme("auto");
-                localStorage.setItem("savedTheme", "auto");
+                Cookies.set("savedTheme", "auto");
                 const darkModeQuery = window.matchMedia(
                   "(prefers-color-scheme: dark)"
                 );
@@ -76,7 +77,7 @@ export const ThemeSelector = ({ ref }: ThemeSelectorProps) => {
               onClick={() => {
                 setTheme("light");
                 setSavedTheme("light");
-                localStorage.setItem("savedTheme", "light");
+                Cookies.set("savedTheme", "light");
               }}
               className={cn(
                 "flex w-full cursor-pointer justify-center stroke-gray-300 px-5 py-4 text-gray-300 dark:stroke-gray-700 dark:text-gray-700",
@@ -92,7 +93,7 @@ export const ThemeSelector = ({ ref }: ThemeSelectorProps) => {
               onClick={() => {
                 setTheme("dark");
                 setSavedTheme("dark");
-                localStorage.setItem("savedTheme", "dark");
+                Cookies.set("savedTheme", "dark");
               }}
               className={cn(
                 "flex w-full cursor-pointer justify-center stroke-gray-300 px-5 py-4 text-gray-300 dark:stroke-gray-700 dark:text-gray-700",

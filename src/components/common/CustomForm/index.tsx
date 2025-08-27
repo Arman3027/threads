@@ -10,7 +10,7 @@ export const CustomForm = ({ title, onSubmit, children }: CustomFormProps) => {
     >
       <div className="relative bottom-0 mx-auto flex h-full w-full flex-col justify-end gap-4 px-4 sm:w-xl sm:px-0">
         <Link href="/" className="mx-auto w-fit">
-          <h1 className="text-lg font-bold text-gray-900 dark:text-gray-100">
+          <h1 className="text-lg none-selectable font-bold text-gray-900 dark:text-gray-100">
             {title}
           </h1>
         </Link>

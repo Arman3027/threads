@@ -2,8 +2,8 @@
 import { useEffect, useState } from "react";
 import { SidebarBtn } from "../SidebarBtn";
 import type { SidebarMenuType } from "./type";
-import { HomeIcon } from "@/components/icons/HomeIcon";
-import { SearchIcon } from "@/components/icons/SearchIcon";
+import { HomeIcon } from "@/components/icons";
+import { SearchIcon } from "@/components/icons";
 import { usePathname } from "next/navigation";
 
 export const SidebarMenu = () => {

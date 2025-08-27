@@ -13,4 +13,8 @@
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
+  .none-selectable {
+    cursor: default;
+    user-select: none;
+  }
 }

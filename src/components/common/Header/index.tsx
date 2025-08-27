@@ -16,7 +16,7 @@ export const Header = ({ title }: HeaderProps) => {
   }, []);
   return (
     <div className="fixed top-0 left-0 z-10 flex h-16 w-full items-center justify-between bg-white/85 px-4 backdrop-blur-xl lg:sticky lg:w-[unset] lg:flex-col lg:items-stretch lg:justify-center lg:bg-gray-100 lg:px-0 lg:backdrop-blur-none dark:bg-gray-900/85 lg:dark:bg-black">
-      <h1 className="hidden py-6 text-center text-base font-semibold text-gray-900 lg:inline-block dark:text-gray-100">
+      <h1 className="hidden none-selectable py-6 text-center text-base font-semibold text-gray-900 lg:inline-block dark:text-gray-100">
         {title}
       </h1>
       <div className="relative flex w-full items-center justify-start sm:justify-center lg:hidden">

@@ -1,20 +1,4 @@
-export type {
-  PostsType,
-  GetPostsApiQueryArgProps,
-  ChildrenProps,
-  RegisterBodyType,
-  LoginBodyType,
-  UserType,
-  ReportType,
-  StatusCode,
-  AddPostsBodyType,
-  AddPostsInput,
-  PostsOptionType,
-  AddPostsForPost,
-  PostIdProps,
-  SendReportInput,
-  AddReportBodyType,
-} from "./types";
+export type { ChildrenProps, StatusCode } from "./types";
 export type {
   CustomResponseOptionsType,
   CustomResponseType,
@@ -23,4 +7,19 @@ export type {
   PaginationType,
   ResponseBodyType,
 } from "./responseTypes";
+export type {
+  AddPostsBodyType,
+  AddPostsForPostType,
+  AddPostsInputType,
+  GetPostsApiQueryArgProps,
+  PostIdProps,
+  PostsOptionType,
+  PostsType,
+} from "./posts";
+export type { LoginBodyType, RegisterBodyType, UserType } from "./users";
+export type {
+  AddReportBodyType,
+  ReportType,
+  SendReportInputType,
+} from "./report";
 export type { Database } from "./supbase";

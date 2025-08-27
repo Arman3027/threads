@@ -1,4 +1,4 @@
-import { ThreadsIcon } from "@/components/icons/ThreadsIcon";
+import { ThreadsIcon } from "@/components/icons";
 
 export default function Loading() {
   return (

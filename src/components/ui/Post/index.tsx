@@ -1,10 +1,10 @@
 "use client";
-import { TimePassedSince } from "@/lib/utils/TimePassedSince";
+import { TimePassedSince } from "@/lib/utils";
 import Image from "next/image";
 import type { PostProps } from "./type";
 import { CopyLinkBtn } from "@/components/common/CopyLinkBtn";
 import Link from "next/link";
-import { cn } from "@/lib/utils/cn";
+import { cn } from "@/lib/utils";
 
 export const Post = ({ Post, className }: PostProps) => {
   return (

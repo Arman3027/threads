@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import type { ButtonProps } from "./type";
-import { cn } from "@/lib/utils/cn";
+import { cn } from "@/lib/utils";
 
 export const Button = ({ children, href, className }: ButtonProps) => {
   return (

@@ -6,7 +6,9 @@ export const Footer = () => {
   const dispatch = useAppDispatch();
   return (
     <div className="flex flex-row gap-3 w-full justify-center m-0.5 mb-20">
-      <p className="text-gray-400 dark:text-gray-600 text-sm">&copy; 2025</p>
+      <p className="text-gray-400 dark:text-gray-600 text-sm none-selectable">
+        &copy; 2025
+      </p>
       <button
         onClick={() => {
           dispatch(showReport());

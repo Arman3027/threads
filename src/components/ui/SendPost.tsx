@@ -1,14 +1,14 @@
 "use client";
 import { useForm } from "react-hook-form";
 import { CustomForm } from "../common/CustomForm";
-import { SubmitButton } from "../common/SubmitButton";
+import { SubmitButton } from "../common";
 import { zodResolver } from "@hookform/resolvers/zod";
 import addPostSchema from "@/lib/constants/FormSchema/addPostSchema";
 import { useRouter } from "next/navigation";
 import { useAddPostMutation } from "@/store/services/posts";
-import { AddPostsInput } from "@/types";
+import { AddPostsInputType } from "@/types";
 import toast from "react-hot-toast";
-import { getNowFormatted } from "@/lib/utils/GetNowTimeFomated";
+import { getNowFormatted } from "@/lib/utils";
 
 export const SendPost = () => {
   const [addPost] = useAddPostMutation();
@@ -19,7 +19,7 @@ export const SendPost = () => {
     formState: { errors },
   } = useForm({ resolver: zodResolver(addPostSchema) });
 
-  const newPostHandler = async (data: AddPostsInput) => {
+  const newPostHandler = async (data: AddPostsInputType) => {
     const now = getNowFormatted();
     try {
       const fullData = { content: data.content, created_at: now };

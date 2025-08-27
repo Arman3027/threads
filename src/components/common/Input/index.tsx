@@ -13,7 +13,7 @@ export const Input = ({
     <div className="flex flex-col gap-2">
       <label
         htmlFor={id}
-        className="text-base font-semibold text-gray-800 dark:text-gray-200"
+        className="text-base none-selectable font-semibold text-gray-800 dark:text-gray-200"
       >
         {title}
       </label>

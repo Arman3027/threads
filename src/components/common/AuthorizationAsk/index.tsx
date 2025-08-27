@@ -7,7 +7,7 @@ export const AuthorizationAsk = ({
   name,
 }: AuthorizationAskProps) => {
   return (
-    <p className="text-center cursor-default text-sm text-gray-800 dark:text-gray-200">
+    <p className="text-center cursor-default text-sm text-gray-800 none-selectable dark:text-gray-200">
       {title}{" "}
       <Link href={href} className="font-semibold cursor-pointer">
         {name}

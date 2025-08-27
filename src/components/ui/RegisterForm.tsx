@@ -2,7 +2,7 @@
 import { AuthorizationAsk } from "@/components/common/AuthorizationAsk";
 import { CustomForm } from "@/components/common/CustomForm";
 import { Input } from "@/components/common/Input";
-import { SubmitButton } from "@/components/common/SubmitButton";
+import { SubmitButton } from "@/components/common";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {

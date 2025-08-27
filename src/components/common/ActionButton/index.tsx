@@ -1,11 +1,24 @@
+"use client";
+
+import { useIsClient } from "usehooks-ts";
 import { useAppSelector } from "@/lib/hook";
 import { Button } from "../Button";
-import { cn } from "@/lib/utils/cn";
+import { cn } from "@/lib/utils";
 
 export const ActionButton = ({ className }: { className?: string }) => {
+  const isClient = useIsClient();
   const isAuthenticated = useAppSelector((state) => {
     return state.auth.isAuthenticated;
   });
+
+  if (!isClient) {
+    return (
+      <Button href="/login" className={cn("relative z-10", className)}>
+        Login
+      </Button>
+    );
+  }
+
   return isAuthenticated ? (
     <Button href="/post/new" className={cn("relative z-10", className)}>
       Send Post

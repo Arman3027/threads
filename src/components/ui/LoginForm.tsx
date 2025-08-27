@@ -2,7 +2,7 @@
 import { AuthorizationAsk } from "@/components/common/AuthorizationAsk";
 import { CustomForm } from "@/components/common/CustomForm";
 import { Input } from "@/components/common/Input";
-import { SubmitButton } from "@/components/common/SubmitButton";
+import { SubmitButton } from "@/components/common";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -15,6 +15,7 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { setIsAuthenticated } from "@/store/features/isAuthenticated/AuthenticatedSlice";
+import Cookies from "js-cookie";
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -38,7 +39,7 @@ export const LoginForm = () => {
       });
       const res = await promise;
       console.log(res);
-      localStorage.setItem("id", res.body.data?.id as string);
+      Cookies.set("id", res.body.data?.id as string);
       dispatch(setIsAuthenticated(true));
       router.push("/");
       router.refresh();

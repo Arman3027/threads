@@ -1,6 +1,6 @@
 "use client";
 import { useAppDispatch, useAppSelector } from "@/lib/hook";
-import { DirectionRightIcon } from "../../icons/DirectionIcon";
+import { DirectionRightIcon } from "../../icons";
 import { ItemOptionMenu } from "../ItemOptionMenu";
 import { exitMenu, showThemeMenu } from "@/store/features/menu/MenuSlice";
 import type { OptionMenuProps } from "./type";
