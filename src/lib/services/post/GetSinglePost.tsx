@@ -1,5 +1,6 @@
 "use client";
 
+import { PostSkeleton } from "@/components/common/Loadings/PostSkeleton";
 import { Post } from "@/components/ui/Post";
 import { useGetPostQuery } from "@/store/services/posts";
 import { PostIdProps } from "@/types";
@@ -8,13 +9,11 @@ export const GetSinglePost = ({ postId }: PostIdProps) => {
   const { data, isLoading, isError } = useGetPostQuery(postId);
 
   if (isLoading) {
-    return (
-      <div className="m-7 text-base font-medium text-center">Loading...</div>
-    );
+    return <PostSkeleton className="border-t first:border-t" />;
   }
   if (isError) {
     return (
-      <div className="m-7 text-base font-medium text-center">
+      <div className="flex h-24 w-full items-center justify-center text-base font-medium text-center">
         Error loading posts.
       </div>
     );

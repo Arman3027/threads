@@ -4,6 +4,7 @@ import { useIsClient } from "usehooks-ts";
 import { useAppSelector } from "@/lib/hook";
 import { Button } from "../Button";
 import { cn } from "@/lib/utils";
+import { ButtonSkeleton } from "../Loadings/ButtonSkeleton";
 
 export const ActionButton = ({ className }: { className?: string }) => {
   const isClient = useIsClient();
@@ -12,11 +13,7 @@ export const ActionButton = ({ className }: { className?: string }) => {
   });
 
   if (!isClient) {
-    return (
-      <Button href="/login" className={cn("relative z-10", className)}>
-        Login
-      </Button>
-    );
+    return <ButtonSkeleton className={cn("relative z-10", className)} />;
   }
 
   return isAuthenticated ? (

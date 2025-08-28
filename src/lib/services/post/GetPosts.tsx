@@ -1,5 +1,6 @@
 "use client";
 
+import { PostSkeleton } from "@/components/common/Loadings/PostSkeleton";
 import { Post } from "@/components/ui/Post";
 import { useGetPostsQuery } from "@/store/services/posts";
 import { PostsType, type GetPostsApiQueryArgProps } from "@/types";
@@ -35,16 +36,27 @@ export const GetPosts = ({ search, limit = 10 }: GetPostsApiQueryArgProps) => {
       }
     }
   }, [data, limit]);
+
+  if (isLoading) {
+    return (
+      <>
+        <PostSkeleton />
+        <PostSkeleton />
+        <PostSkeleton />
+        <PostSkeleton />
+      </>
+    );
+  }
   if (isError) {
     return (
-      <div className="m-7 text-base font-medium text-center">
+      <div className="flex h-24 w-full items-center justify-center text-base font-medium text-center">
         Error loading posts.
       </div>
     );
   }
   if (!isLoading && allPosts.length === 0) {
     return (
-      <div className="m-7 text-base font-medium text-center">
+      <div className="flex h-24 w-full items-center justify-center text-base font-medium text-center">
         No posts found.
       </div>
     );
