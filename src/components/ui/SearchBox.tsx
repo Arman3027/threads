@@ -13,7 +13,7 @@ export const SearchBox = () => {
         search
       </p>
       <div className="lg:rounded-t-2xl bg-white dark:bg-gray-900 border-[1px] border-gray-200 dark:border-gray-800 w-full h-fit py-4 lg:py-10 px-8">
-        <div className="relative lg:hidden flex justify-center items-center">
+        <div className="relative lg:hidden flex justify-start sm:justify-center items-center">
           <div className="size-8">
             <ThreadsIcon />
           </div>

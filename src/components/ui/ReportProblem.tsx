@@ -19,7 +19,7 @@ export const ReportProblem = () => {
       <div className="fixed top-0 left-0 h-screen w-screen backdrop-blur-sm flex justify-center items-center z-40">
         <div
           ref={ref}
-          className="flex flex-col justify-center items-center gap-2 h-60 w-96"
+          className="flex mx-2 flex-col justify-center items-center gap-2 h-60 w-96"
         >
           <p className="text-lg font-semibold text-gray-800 dark:text-gray-100">
             Report a Problem
